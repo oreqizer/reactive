@@ -1,4 +1,8 @@
 {
+  "env": {
+    "node": false,
+    "browser": true
+  },
   "rules": {
     "import/no-extraneous-dependencies": "error"
   }

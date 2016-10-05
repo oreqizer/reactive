@@ -21,7 +21,7 @@ const plugins = [
 
 module.exports = {
   context: __dirname,
-  entry: ['./src/client/index'],
+  entry: ['./src/index'],
   resolve: {
     extensions: ['.js', '.jsx'],
   },

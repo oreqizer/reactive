@@ -2,11 +2,11 @@
   "name": "reactive",
   "version": "1.0.0",
   "description": "Materials for the Reactive 2016 conference workshop.",
-  "main": "dist/server/index.js",
+  "main": "server.js",
   "scripts": {
     "start": "babel-node server.dev.js",
     "bundle": "rm -rf dist && npm run babel && npm run webpack && npm run assets",
-    "server": "NODE_ENV=production node dist/server/server.js",
+    "server": "NODE_ENV=production node server.js",
     "babel": "babel src --out-dir dist",
     "webpack": "NODE_ENV=production webpack",
     "assets": "cp -r src/client/assets dist/static/assets",
