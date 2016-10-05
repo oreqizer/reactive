@@ -5,7 +5,7 @@ import webpackDev from 'webpack-dev-middleware';
 
 import webpackConfig from './webpack.dev';
 
-import index from './src/server';
+import reactApp from './src/server/reactApp';
 
 const app = express();
 
@@ -20,6 +20,6 @@ app.use(webpackDev(compiler, {
 }));
 
 // setup react middleware
-app.use(index);
+app.use(reactApp);
 
 app.listen(8080, () => process.stdout.write('[devserver] listening at port 8080\n'));

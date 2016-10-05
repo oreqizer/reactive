@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 
-import index from './app';
+import reactApp from './reactApp';
 
 const app = express();
 
@@ -9,6 +9,6 @@ const app = express();
 app.use(express.static(path.join(__dirname, '../static')));
 
 // setup react middleware
-app.use(index);
+app.use(reactApp);
 
 app.listen(3000, () => process.stdout.write('[server] listening at port 3000\n'));

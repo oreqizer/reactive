@@ -8,6 +8,9 @@ const loaders = [{
     babelrc: false,
     presets: ['react', ['es2015', { modules: false }], 'stage-3'],
   },
+}, {
+  test: /\.html$/,
+  loader: 'file?name=[name].[ext]',
 }];
 
 const plugins = [
@@ -18,7 +21,7 @@ const plugins = [
 
 module.exports = {
   context: __dirname,
-  entry: ['./src/client/index.jsx'],
+  entry: ['./src/client/index'],
   resolve: {
     extensions: ['.js', '.jsx'],
   },
