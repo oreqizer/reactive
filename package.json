@@ -5,8 +5,10 @@
   "main": "dist/server/index.js",
   "scripts": {
     "start": "babel-node server.dev.js",
-    "bundle": "NODE_ENV=production webpack",
-    "server": "node dist/server/index.js",
+    "bundle": "rm -rf dist && npm run babel && npm run webpack",
+    "server": "NODE_ENV=production node dist/server/server.js",
+    "babel": "babel src --out-dir dist",
+    "webpack": "NODE_ENV=production webpack",
     "test": "npm test"
   },
   "repository": {
@@ -40,6 +42,9 @@
     "reselect": "^2.5.4"
   },
   "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-polyfill": "^6.16.0",
     "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-add-module-exports": "^0.2.1",

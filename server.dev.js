@@ -1,4 +1,4 @@
-import { join } from 'path';
+import path from 'path';
 import express from 'express';
 import webpack from 'webpack';
 import webpackDev from 'webpack-dev-middleware';
@@ -12,7 +12,7 @@ const app = express();
 const compiler = webpack(webpackConfig);
 
 // serve assets not processed by Webpack
-app.use(express.static(join(__dirname, '../../.tmp/static')));
+app.use(express.static(path.join(__dirname, 'src/client')));
 
 // enables recompilation
 app.use(webpackDev(compiler, {
@@ -22,4 +22,4 @@ app.use(webpackDev(compiler, {
 // setup react middleware
 app.use(index);
 
-app.listen(8080, () => console.log(`[devserver] listening at port 8080`));
+app.listen(8080, () => process.stdout.write('[devserver] listening at port 8080\n'));

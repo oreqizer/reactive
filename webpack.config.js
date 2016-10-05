@@ -4,9 +4,9 @@ const base = require('./webpack.base');
 
 module.exports = Object.assign({}, base, {
   output: {
-    path: path.join(__dirname, '.tmp/static'),
+    path: path.join(__dirname, 'dist/static'),
     publicPath: '/',
     filename: 'bundle.js',
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-source-map',
 });

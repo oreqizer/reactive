@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+const webpack = require('webpack');
 
 const loaders = [{
   test: /\.jsx?$/,
@@ -16,9 +16,9 @@ const plugins = [
   }),
 ];
 
-export default {
+module.exports = {
   context: __dirname,
-  entry: ['src/client/index.js'],
+  entry: ['./src/client/index.jsx'],
   resolve: {
     extensions: ['.js', '.jsx'],
   },
