@@ -5,11 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "babel-node server.dev.js",
-    "bundle": "rm -rf dist && npm run babel && npm run webpack && npm run assets",
+    "bundle": "rm -rf dist && npm run webpack && npm run assets",
     "server": "NODE_ENV=production node server.js",
-    "babel": "babel src --out-dir dist",
     "webpack": "NODE_ENV=production webpack",
-    "assets": "cp -r src/client/assets dist/static/assets",
+    "assets": "cp -r src/assets dist/assets",
     "test": "npm test"
   },
   "repository": {
