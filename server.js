@@ -1,7 +1,14 @@
+const fs = require('fs');
 const path = require('path');
 const express = require('express');
 
 const app = express();
+
+const html = fs.readFileSync(path.join(__dirname, 'dist/index.html'));
+
+app.get('/*', (req, res) => {
+  res.end(html);
+});
 
 // serve assets not processed by Webpack
 app.use(express.static(path.join(__dirname, 'dist')));

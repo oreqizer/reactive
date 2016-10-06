@@ -5,14 +5,14 @@ import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import store from './redux/store';
+import routes from './modules/routes';
 
-const routes = null; // TODO
 const history = syncHistoryWithStore(browserHistory, store);
 
-const Root = () => (
+const ReduxRoot = () => (
   <Provider store={store}>
     <Router children={routes} history={history} />
   </Provider>
 );
 
-export default Root;
+export default ReduxRoot;

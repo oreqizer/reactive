@@ -3,7 +3,6 @@ const webpack = require('webpack');
 
 const production = process.env.NODE_ENV === 'production';
 const out = production ? 'dist' : '.tmp';
-const devtool = production ? 'cheap-source-map' : 'cheap-module-eval-source-map';
 
 const loaders = [{
   test: /\.jsx?$/,
@@ -19,6 +18,7 @@ const loaders = [{
 }];
 
 const plugins = [
+  new webpack.SourceMapDevToolPlugin(),
   new webpack.DefinePlugin({
     'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
   }),
@@ -39,5 +39,4 @@ module.exports = {
     loaders,
   },
   plugins,
-  devtool,
 };
