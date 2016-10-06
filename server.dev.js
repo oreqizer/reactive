@@ -12,6 +12,9 @@ const compiler = webpack(webpackConfig);
 
 const html = fs.readFileSync(path.join(__dirname, 'src/index.html'));
 
+// serve assets not processed by Webpack
+app.use(express.static(path.join(__dirname, 'src')));
+
 // enables recompilation
 app.use(webpackDev(compiler, {
   noInfo: true,
@@ -20,8 +23,5 @@ app.use(webpackDev(compiler, {
 app.get('/*', (req, res) => {
   res.end(html);
 });
-
-// serve assets not processed by Webpack
-app.use(express.static(path.join(__dirname, 'src')));
 
 app.listen(8080, () => process.stdout.write('[server.dev] listening at port 8080\n'));
