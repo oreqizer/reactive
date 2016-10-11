@@ -1,14 +1,23 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 const Index = props => (
-  <div>
-    Index<br />
-    Route: {props.route.path}
+  <div id="Index">
+    <nav className="navbar navbar-fixed-top navbar-inverse">
+      <div className="navbar-header">
+        <Link to="/" className="navbar-brand">
+          Reactive
+        </Link>
+      </div>
+    </nav>
+    <div id="App" className="container-fluid">
+      {props.children}
+    </div>
   </div>
 );
 
 Index.propTypes = {
-  route: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  children: PropTypes.node.isRequired,
 };
 
 export default Index;
