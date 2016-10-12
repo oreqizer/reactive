@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, locationShape } from 'react-router';
+import classnames from 'classnames';
 
 const Index = props => (
   <div id="Index">
@@ -9,6 +10,11 @@ const Index = props => (
           Reactive
         </Link>
       </div>
+      <ul className="nav navbar-nav">
+        <li className={classnames({ active: props.location.pathname.includes('/chat') })}>
+          <Link to="/chat">Chat</Link>
+        </li>
+      </ul>
     </nav>
     <div id="App" className="container-fluid">
       {props.children}
@@ -18,6 +24,7 @@ const Index = props => (
 
 Index.propTypes = {
   children: PropTypes.node.isRequired,
+  location: locationShape.isRequired,
 };
 
 export default Index;

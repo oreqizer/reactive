@@ -1,6 +1,7 @@
 import { browserHistory } from 'react-router';
 import { createStore, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
+import reduxThunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 import reducers from './reducers';
@@ -16,6 +17,7 @@ const store = createStore(
   applyMiddleware(
     historyMiddleware,
     loggerMiddleware,
+    reduxThunk,
   )
 );
 
