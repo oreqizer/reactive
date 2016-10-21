@@ -8,7 +8,7 @@ import { fetchChat } from '../../redux/modules/chatDuck';
 import Messages from './Messages';
 
 
-class Chat extends Component {
+class ReduxChat extends Component {
   constructor(props) {
     super(props);
 
@@ -85,7 +85,7 @@ class Chat extends Component {
                 </div>
                 <div className="panel-body">
                   {chat.name === 'doge' &&
-                    <img src="/assets/doge.jpg" alt="doge" />
+                  <img src="/assets/doge.jpg" alt="doge" />
                   }
                   <Messages messages={chat.messages} />
                 </div>
@@ -104,7 +104,7 @@ class Chat extends Component {
   }
 }
 
-Chat.propTypes = {
+ReduxChat.propTypes = {
   routeParams: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
   // connect
   chat: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
@@ -119,4 +119,5 @@ const actions = {
 
 export default connect(state => ({
   chat: state.chat,
-}), actions)(Chat);
+}), actions)(ReduxChat);
+

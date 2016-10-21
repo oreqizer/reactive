@@ -11,8 +11,11 @@ const Index = props => (
         </Link>
       </div>
       <ul className="nav navbar-nav">
-        <li className={classnames({ active: props.location.pathname.includes('/chat') })}>
-          <Link to="/chat">Chat</Link>
+        <li className={classnames({ active: props.location.pathname.includes('/reduxchat') })}>
+          <Link to="/reduxchat">Redux Chat</Link>
+        </li>
+        <li className={classnames({ active: props.location.pathname.includes('/mobxchat') })}>
+          <Link to="/mobxchat">Mobx Chat</Link>
         </li>
       </ul>
     </nav>

@@ -3,12 +3,14 @@ import { Route, IndexRoute } from 'react-router';
 
 import Index from './Index';
 import Home from './Home/Home';
-import Chat from './Chat/Chat';
+import ReduxChat from './Chat/ReduxChat';
+import MobxChat from './Chat/MobxChat';
 
 const routes = (
   <Route path="/" component={Index}>
     <IndexRoute component={Home} />
-    <Route path="chat(/:name)" component={Chat} />
+    <Route path="reduxchat(/:name)" component={ReduxChat} />
+    <Route path="mobxchat(/:name)" component={MobxChat} />
   </Route>
 );
 
