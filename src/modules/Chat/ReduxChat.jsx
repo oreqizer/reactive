@@ -38,7 +38,7 @@ class ReduxChat extends Component {
     const { name } = this.state;
 
     this.props.fetchChat(name);
-    this.props.push(`/chat/${name}`);
+    this.props.push(`/reduxchat/${name}`);
   }
 
   render() {

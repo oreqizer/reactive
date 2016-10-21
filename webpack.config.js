@@ -10,8 +10,8 @@ const loaders = [{
   exclude: /node_modules/,
   loader: 'babel',
   query: {
-    babelrc: false,
-    presets: ['react', ['es2015', { modules: false }], 'stage-3'],
+    presets: ['react', ['es2015', { modules: false }], 'stage-2'],
+    plugins: ['transform-decorators-legacy'],
   },
 }, {
   test: /\.css$/,

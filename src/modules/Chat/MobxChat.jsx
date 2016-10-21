@@ -1,14 +1,23 @@
 import React, { Component, PropTypes } from 'react';
-import { push } from 'react-router-redux';
-import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import { observer, inject } from 'mobx-react';
 
 import { LOADING, SUCCESS, ERROR } from '../../consts/phaseEnums';
-import { fetchChat } from '../../redux/modules/chatDuck';
+import ChatStore from '../../mobx/modules/ChatStore';
 
 import Messages from './Messages';
 
+@withRouter
+@inject('chat')
+@observer
+export default class MobxChat extends Component {
+  static propTypes = {
+    router: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
+    routeParams: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
+    // inject
+    chat: PropTypes.instanceOf(ChatStore).isRequired,
+  };
 
-class ReduxChat extends Component {
   constructor(props) {
     super(props);
 
@@ -24,7 +33,7 @@ class ReduxChat extends Component {
     const { routeParams } = this.props;
 
     if (routeParams.name) {
-      this.props.fetchChat(routeParams.name);
+      this.props.chat.fetchChat(routeParams.name);
     }
   }
 
@@ -35,10 +44,11 @@ class ReduxChat extends Component {
   }
 
   handleSubmit() {
+    const { router } = this.props;
     const { name } = this.state;
 
-    this.props.fetchChat(name);
-    this.props.push(`/chat/${name}`);
+    this.props.chat.fetchChat(name);
+    router.push(`/mobxchat/${name}`);
   }
 
   render() {
@@ -85,7 +95,7 @@ class ReduxChat extends Component {
                 </div>
                 <div className="panel-body">
                   {chat.name === 'doge' &&
-                  <img src="/assets/doge.jpg" alt="doge" />
+                    <img src="/assets/doge.jpg" alt="doge" />
                   }
                   <Messages messages={chat.messages} />
                 </div>
@@ -103,21 +113,3 @@ class ReduxChat extends Component {
     );
   }
 }
-
-ReduxChat.propTypes = {
-  routeParams: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
-  // connect
-  chat: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
-  push: PropTypes.func.isRequired,
-  fetchChat: PropTypes.func.isRequired,
-};
-
-const actions = {
-  push,
-  fetchChat,
-};
-
-export default connect(state => ({
-  chat: state.chat,
-}), actions)(ReduxChat);
-

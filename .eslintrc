@@ -7,7 +7,7 @@
   },
   "rules": {
     "generator-star-spacing": "off", // see https://github.com/babel/babel-eslint/issues/357
-    "new-cap": "off", // immutable
+    "new-cap": "off",                // immutable
     "import/no-extraneous-dependencies": "off"
   }
 }
