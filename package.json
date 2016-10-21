@@ -8,7 +8,7 @@
     "bundle": "rm -rf dist && npm run webpack && npm run assets",
     "server": "NODE_ENV=production node server.js",
     "webpack": "NODE_ENV=production webpack",
-    "assets": "cp -r src/assets dist/assets",
+    "assets": "cp -r src/assets dist/assets && cp src/favicon.ico dist",
     "lint": "eslint src/"
   },
   "repository": {
