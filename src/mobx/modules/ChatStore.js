@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { observable, action, runInAction } from 'mobx';
 import { List } from 'immutable';
 
 import { INIT, LOADING, SUCCESS, ERROR } from '../../consts/phaseEnums';
@@ -11,7 +11,7 @@ export default class ChatStore {
   @observable phase = INIT;
   @observable error = null;
 
-  async fetchChat(name) {
+  @action async fetchChat(name) {
     try {
       this.name = null;
       this.messages = List();
@@ -20,12 +20,16 @@ export default class ChatStore {
 
       const messages = await api.fetchMessages(name);
 
-      this.name = name;
-      this.phase = SUCCESS;
-      this.messages = List(messages);
+      runInAction('#fetchChat success', () => {
+        this.name = name;
+        this.phase = SUCCESS;
+        this.messages = List(messages);
+      });
     } catch (error) {
-      this.phase = ERROR;
-      this.error = String(error);
+      runInAction('#fetchChat error', () => {
+        this.phase = ERROR;
+        this.error = String(error);
+      });
     }
   }
 }

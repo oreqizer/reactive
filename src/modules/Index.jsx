@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Link, locationShape } from 'react-router';
+import DevTools from 'mobx-react-devtools';
 import classnames from 'classnames';
 
 const Index = props => (
   <div id="Index">
+    {process.env.NODE_ENV !== 'production' && <DevTools />}
     <nav className="navbar navbar-fixed-top navbar-inverse">
       <div className="navbar-header">
         <Link to="/" className="navbar-brand">

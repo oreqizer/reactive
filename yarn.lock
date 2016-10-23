@@ -2863,6 +2863,10 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, "mkdirp@>=0.5 0", mkdirp@~0.5.0, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
+mobx-react-devtools:
+  version "4.2.9"
+  resolved "https://registry.yarnpkg.com/mobx-react-devtools/-/mobx-react-devtools-4.2.9.tgz#46034da90fbcfac3c9cc040fcc3ced72e739518a"
+
 mobx-react@^3.5.8:
   version "3.5.8"
   resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-3.5.8.tgz#90b5a3c14079875726fa45f2684ee9b73c03b404"
